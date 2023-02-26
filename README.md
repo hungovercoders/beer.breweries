@@ -1,2 +1,2 @@
-# breweries.web
+# breweries
 Breweries web page
