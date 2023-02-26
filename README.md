@@ -1,2 +1,2 @@
-# web.breweries
+# breweries.web
 Breweries web page
