@@ -1,1 +1,111 @@
-<h1> Breweries </h1>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  
+  <header>
+  
+  </header>
+  
+  <body onload="getLocation()">
+    <div class="logo">
+        <img src="images/logo.png" width=300 height=auto align="left" />
+    </div>
+    <div>
+  
+        <div class="header">
+            <p>Welcome to brewers close to you...</p>
+            <p><b>Support your local brewers!</b></p>
+        </div>
+        <div>
+  
+  
+        </div>
+        <div class="row">
+            <ul class="column">
+                <p id="nearbybreweries"></p>
+            </ul>
+        </div>
+  
+  
+  </body>
+  <script>
+    var y = document.getElementById("nearbybreweries");
+  
+  
+  
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(nearestLocation);
+        } else {
+            y.innerHTML = "<p>Geolocation is not supported by this browser.</p>";
+        }
+    }
+  
+  
+  
+    function distance(lat1, lon1, lat2, lon2, unit) {
+        var radlat1 = Math.PI * lat1 / 180
+        var radlat2 = Math.PI * lat2 / 180
+        var theta = lon1 - lon2
+        var radtheta = Math.PI * theta / 180
+        var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+        if (dist > 1) {
+            dist = 1;
+        }
+        dist = Math.acos(dist)
+        dist = dist * 180 / Math.PI
+        dist = dist * 60 * 1.1515
+        if (unit == "K") { dist = dist * 1.609344 }
+        if (unit == "N") { dist = dist * 0.8684 }
+        return dist
+    }
+  
+    function nearestLocation(position) {
+        var beer_data = [{
+            "name": "Crafty Devil",
+            "lat": "51.47764362787248",
+            "lng": " -3.198413372820113",
+            "website": "http://www.craftydevilbrewing.co.uk/"
+        },
+        {
+            "name": "Pipes",
+            "lat": "51.48607479909075",
+            "lng": "-3.200188298595686",
+            "website": "https://www.pipesbeer.co.uk/"
+        },
+        {
+            "name": "Tiny Rebel",
+            "lat": "51.590633556773966",
+            "lng": "-3.053859886165446",
+            "website": "https://www.tinyrebel.co.uk/"
+        }
+        ];
+  
+        var html = "";
+        var poslat = position.coords.latitude;
+        var poslng = position.coords.longitude;
+        var brewery_name
+  
+        for (var i = 0; i < beer_data.length; i++) {
+            beer_data[i]['distance'] = distance(poslat, poslng, beer_data[i].lat, beer_data[i].lng, "K").toFixed(2);
+            name = beer_data[i].name
+        }
+
+       beer_data.sort((a, b) => {
+            return a.distance - b.distance;
+        })
+
+
+        for (var i = 0; i < beer_data.length; i++) {
+            html += '<li class="card brewery-link" onclick="location.href = \'' + beer_data[i].website + '?utm_source=hungovercoders\';">Get a beer from ' + beer_data[i].name + ' which is ' + beer_data[i].distance + 'km to being your local brewer</li>'
+        }
+  
+        if (html == "") {
+            html += '<p>No nearby breweries</p>';
+        }
+  
+        y.innerHTML = html
+  
+    }
+  </script>
+  
