@@ -1,0 +1,25 @@
+{
+  "breweries": [
+    {
+      "name": "Crafty Devil",
+      "lat": "51.47764362787248",
+      "lng": " -3.198413372820113",
+      "website": "http://www.craftydevilbrewing.co.uk/",
+      "id": 1
+    },
+    {
+      "name": "Pipes",
+      "lat": "51.48607479909075",
+      "lng": "-3.200188298595686",
+      "website": "https://www.pipesbeer.co.uk/",
+      "id": 2
+    },
+    {
+      "name": "Tiny Rebel",
+      "lat": "51.590633556773966",
+      "lng": "-3.053859886165446",
+      "website": "https://www.tinyrebel.co.uk/",
+      "id": 3
+    }
+  ]
+}
