@@ -146,15 +146,15 @@
             return a.distance - b.distance;
         })
 
-
         for (var i = 0; i < beer_data.length; i++) {
-            html += '<a href="' + beer_data[i].website + '?utm_source=hungovercoders" target="_blank" rel="noopener noreferrer"><li class="card brewery-link" onclick="window.dataLayer.push({\'brewery\': \'' + beer_data[i].name + '\'});">Get a beer from ' + beer_data[i].name + ' which is ' + beer_data[i].distance + 'km to being your local brewer</li></a>'
+            // if this location is within 30KM of the user, add it to the list
+            html += '<li class="card" onclick="location.href = \'' + beer_data[i].website + '?utm_source=hungovercoders\';">Rescue a dog from ' + beer_data[i].name + ' which is ' + beer_data[i].distance + 'km away</li>'
         }
-
+  
         if (html == "") {
             html += '<p>No nearby breweries</p>';
         }
-
+  
         y.innerHTML = html
 
     }
