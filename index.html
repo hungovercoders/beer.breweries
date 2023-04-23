@@ -5,19 +5,26 @@
         window.dataLayer = window.dataLayer || [];
     </script>
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
+    <!-- <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
                 'gtm.start':
                     new Date().getTime(), event: 'gtm.js'
             }); var f = d.getElementsByTagName(s)[0],
                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5RJBJWL');</script>
+        })(window, document, 'script', 'dataLayer', 'GTM-5RJBJWL');</script> -->
     <!-- End Google Tag Manager -->
 </head>
 
 <header>
+    <div class="header">
+    <a href="https://www.hungovercoders.com">
+        <img src="images/logo3.ico" alt="logo" width="50px"/>
+    </a>
 
+        <p>Welcome to brewers close to you...</p>
+        <p><b>Support your local brewers!</b></p>
+    </div>
 </header>
 
 <body onload="getLocation()">
@@ -26,16 +33,6 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div>
-
-        <div class="header">
-            <a href="https://www.hungovercoders.com">
-                <img src="images/logo3.ico" alt="logo" />
-            </a>
-
-            <p>Welcome to brewers close to you...</p>
-            <p><b>Support your local brewers!</b></p>
-        </div>
-        <div>
 
 
         </div>
@@ -97,9 +94,44 @@
             "lat": "51.590633556773966",
             "lng": "-3.053859886165446",
             "website": "https://www.tinyrebel.co.uk/"
+        },
+        {
+            "name": "Frank and Otis Brewing Co",
+            "lat": "51.4987030248844",
+            "lng": "-3.1375229661260953",
+            "website": "http://frankandotisbrewing.co/"
+        },
+        {
+            "name": "Mad Dog Brewing Company",
+            "lat": "51.481409622401785",
+            "lng": "-3.181850910045229",
+            "website": "http://www.maddogbrew.co.uk/"
+        },
+        {
+            "name": "Flowerhorn Brewery",
+            "lat": "51.485558159859785",
+            "lng": "3.2295576325094655",
+            "website": "http://www.flowerhorn.co.uk/"
+        },
+        {
+            "name": "Vale of Glamorgan Brewery",
+            "lat": "51.40273380228309",
+            "lng": "-3.243113678592208",
+            "website": "http://www.vogbrewery.co.uk/"
+        },
+        {
+            "name": "Glamorgan Brewing Company",
+            "lat": "51.55310110058626",
+            "lng": "-3.385114178409881",
+            "website": "http://www.glamorganbrewing.co.uk/"
+        },
+        {
+            "name": "SA Brains",
+            "lat": "51.478399441640384",
+            "lng": "-3.1450399691183244",
+            "website": "http://www.sabrain.com/"
         }
         ];
-
         var html = "";
         var poslat = position.coords.latitude;
         var poslng = position.coords.longitude;
