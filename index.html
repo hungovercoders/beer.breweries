@@ -18,31 +18,24 @@
 
 <header>
     <div class="header">
-    <a href="https://www.hungovercoders.com">
-        <img src="images/logo3.ico" alt="logo" width="50px"/>
-    </a>
-
-        <p>Welcome to brewers close to you...</p>
-        <p><b>Support your local brewers!</b></p>
+        <a href="https://www.hungovercoders.com">
+            <img src="images/logo3.ico" alt="logo" width="50px" />
+        </a>
+        <p>Support your local brewers!</p>
     </div>
 </header>
-
 <body onload="getLocation()">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RJBJWL" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div>
-
-
-        </div>
-        <div class="row">
-            <ul class="column">
-                <p id="nearbybreweries"></p>
-            </ul>
-        </div>
-
-
+    </div>
+    <div class="row">
+        <ul class="column">
+            <p id="nearbybreweries"></p>
+        </ul>
+    </div>
 </body>
 <script>
     var y = document.getElementById("nearbybreweries");
@@ -148,13 +141,13 @@
 
         for (var i = 0; i < beer_data.length; i++) {
             // if this location is within 30KM of the user, add it to the list
-            html += '<li class="card" onclick="location.href = \'' + beer_data[i].website + '?utm_source=hungovercoders\';">Rescue a dog from ' + beer_data[i].name + ' which is ' + beer_data[i].distance + 'km away</li>'
+            html += '<li class="card" onclick="location.href = \'' + beer_data[i].website + '?utm_source=hungovercoders\';">Get a beer from ' + beer_data[i].name + ' which is ' + beer_data[i].distance + 'km away</li>'
         }
-  
+
         if (html == "") {
             html += '<p>No nearby breweries</p>';
         }
-  
+
         y.innerHTML = html
 
     }
