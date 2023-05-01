@@ -35,7 +35,10 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RJBJWL" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div>
+    <div class="row">
+        <label for="postcode-input">Enter postcode:</label>
+        <input type="text" id="postcode-input" name="postcode-input">
+        <button id="search-button">Search</button>
     </div>
     <div class="row">
         <ul class="column">
@@ -43,16 +46,42 @@
         </ul>
     </div>
 </body>
+<script src="scripts/postcode.js"></script>
 <script>
     var y = document.getElementById("nearbybreweries");
+
+    const searchButton = document.getElementById('search-button');
+    searchButton.addEventListener('click', () => {
+        getLocationFromPostcode(nearestLocation);
+    });
+
 
 
 
     function getLocation() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(nearestLocation);
+            navigator.geolocation.getCurrentPosition(nearestLocation, showError);
         } else {
             y.innerHTML = "<p>Geolocation is not supported by this browser.</p>";
+        }
+    }
+
+
+
+    function showError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                console.log('User denied the request for Geolocation.');
+                break;
+            case error.POSITION_UNAVAILABLE:
+                console.log('Location information is unavailable.');
+                break;
+            case error.TIMEOUT:
+                console.log('The request to get user location timed out.');
+                break;
+            case error.UNKNOWN_ERROR:
+                console.log('An unknown error occurred.');
+                break;
         }
     }
 
